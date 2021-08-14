@@ -1,0 +1,56 @@
+2021 08 12
+Hosts file modified
+    127.0.0.1 beepbeeplog.test 
+
+
+httpd-vhosts.conf modified
+<VirtualHost *:80>
+    DocumentRoot "/Applications/MAMP/htdocs/beepbeeplog/public"
+    ServerName beepbeeplog.test
+    ServerAlias www.beepbeeplog.test
+    ErrorLog "logs/myproject-error_log"
+    CustomLog "logs/myproject-access_log" common
+</VirtualHost>
+
+database created:
+
+-- phpMyAdmin SQL Dump
+-- version 4.9.3
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost:8889
+-- Generation Time: Aug 12, 2021 at 09:21 PM
+-- Server version: 5.7.26
+-- PHP Version: 7.4.2
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Database: `beepbeeplog`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vehicle`
+--
+
+CREATE TABLE `vehicle` (
+  `id` int(11) NOT NULL,
+  `make` varchar(50) NOT NULL,
+  `model` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modified_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `vehicle`
+--
+ALTER TABLE `vehicle`
+  ADD PRIMARY KEY (`id`);
